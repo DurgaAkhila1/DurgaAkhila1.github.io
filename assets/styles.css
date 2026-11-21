@@ -1,0 +1,228 @@
+/* ============================================================
+   Durga Akhila — Portfolio styles
+   Colors live in :root — change them there to re-theme the site.
+   ============================================================ */
+:root{
+  --bg:#fffaf3;
+  --ink:#1d1838;
+  --ink-2:#4b4668;
+  --muted:#7b7697;
+  --line:#ece4f5;
+  --white:#ffffff;
+
+  --coral:#ff6b6b;
+  --sun:#ffb238;
+  --mint:#1fc8a9;
+  --sky:#3a86ff;
+  --violet:#7b5cff;
+  --pink:#ff4fa3;
+
+  --rainbow:linear-gradient(110deg,var(--pink),var(--coral) 25%,var(--sun) 50%,var(--mint) 72%,var(--sky) 88%,var(--violet));
+  --warm:linear-gradient(135deg,var(--pink),var(--coral) 55%,var(--sun));
+  --cool:linear-gradient(135deg,var(--sky),var(--violet));
+  --fresh:linear-gradient(135deg,var(--mint),var(--sky));
+
+  --radius:22px;
+  --shadow:0 18px 50px -22px rgba(52,30,110,.28);
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:"Bricolage Grotesque","Plus Jakarta Sans",sans-serif;line-height:1.1;letter-spacing:-.025em}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+section{padding:96px 0;position:relative}
+
+/* Decorative color blobs behind content */
+.blobs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.blobs span{position:absolute;border-radius:50%;filter:blur(80px);opacity:.38;animation:drift 22s ease-in-out infinite alternate}
+.blobs span:nth-child(1){width:520px;height:520px;background:var(--pink);top:-160px;left:-140px}
+.blobs span:nth-child(2){width:460px;height:460px;background:var(--sun);top:10%;right:-160px;animation-delay:-6s}
+.blobs span:nth-child(3){width:420px;height:420px;background:var(--mint);bottom:-180px;left:20%;animation-delay:-12s}
+.blobs span:nth-child(4){width:360px;height:360px;background:var(--violet);bottom:10%;right:10%;opacity:.25;animation-delay:-3s}
+@keyframes drift{to{transform:translate(60px,40px) scale(1.12)}}
+
+/* ---------- Nav ---------- */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,250,243,.78);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:12px;font-family:"Bricolage Grotesque";font-weight:800;font-size:21px}
+.brand-mark{width:42px;height:42px;border-radius:14px;background:var(--rainbow);background-size:200% 200%;animation:shift 8s ease infinite;display:grid;place-items:center;color:#fff;font-size:17px;box-shadow:0 8px 20px -8px rgba(255,79,163,.7)}
+.menu{display:flex;align-items:center;gap:6px}
+.menu a{padding:9px 16px;border-radius:999px;font-weight:600;font-size:14.5px;color:var(--ink-2);transition:.2s}
+.menu a:hover{background:#fff;color:var(--ink)}
+.menu a.active{background:var(--ink);color:#fff}
+.menu a.hire{background:var(--warm);color:#fff;margin-left:8px;box-shadow:0 10px 24px -10px rgba(255,107,107,.9)}
+.menu a.hire:hover{transform:translateY(-1px)}
+.burger{display:none;background:#fff;border:1px solid var(--line);width:44px;height:44px;border-radius:12px;font-size:20px;cursor:pointer;color:var(--ink)}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:700;font-size:15.5px;transition:.25s;border:0;cursor:pointer}
+.btn-warm{background:var(--warm);color:#fff;box-shadow:0 14px 30px -12px rgba(255,79,163,.8)}
+.btn-cool{background:var(--cool);color:#fff;box-shadow:0 14px 30px -12px rgba(91,92,255,.8)}
+.btn-white{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.btn:hover{transform:translateY(-3px)}
+
+/* ---------- Type helpers ---------- */
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);margin-bottom:20px}
+.kicker i{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(31,200,169,.2)}
+.title{font-size:clamp(34px,4.6vw,56px);margin-bottom:18px}
+.lead{font-size:clamp(17px,1.5vw,19.5px);color:var(--ink-2);max-width:640px}
+.rainbow-text{background:var(--rainbow);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shift 7s linear infinite}
+@keyframes shift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.center{text-align:center}.center .lead{margin:0 auto}
+
+/* ---------- Page header (inner pages) ---------- */
+.page-head{padding:90px 0 40px}
+.page-head .title{font-size:clamp(40px,6vw,72px)}
+
+/* ---------- Home hero ---------- */
+.hero{padding:80px 0 60px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(46px,7vw,92px);margin-bottom:24px}
+.hero .lead{margin-bottom:36px}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.hello{display:inline-block;animation:wave 2.4s ease-in-out infinite;transform-origin:70% 70%}
+@keyframes wave{0%,60%,100%{transform:rotate(0)}10%,30%{transform:rotate(14deg)}20%{transform:rotate(-8deg)}40%{transform:rotate(-4deg)}50%{transform:rotate(10deg)}}
+
+.avatar-card{position:relative;aspect-ratio:1/1.08;border-radius:36px;background:var(--rainbow);background-size:220% 220%;animation:shift 10s ease infinite;padding:10px;box-shadow:var(--shadow)}
+.avatar-inner{width:100%;height:100%;border-radius:28px;background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:14px;text-align:center;padding:30px;position:relative;overflow:hidden}
+.avatar-inner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.monogram{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(80px,10vw,130px);line-height:1}
+.avatar-inner p{color:var(--muted);font-weight:600}
+.sticker{position:absolute;background:#fff;border-radius:18px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow);font-weight:700;font-size:14px;animation:float 5s ease-in-out infinite}
+.sticker small{display:block;font-weight:600;color:var(--muted);font-size:12px}
+.sticker .em{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:19px}
+.s1{top:8%;left:-36px}.s2{bottom:12%;right:-30px;animation-delay:-2.5s}.s3{bottom:-22px;left:14%;animation-delay:-1.2s}
+@keyframes float{50%{transform:translateY(-10px)}}
+
+/* ---------- Stat tiles ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.stat{border-radius:var(--radius);padding:28px 24px;color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.stat::after{content:"";position:absolute;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.16);right:-40px;top:-40px}
+.stat b{display:block;font-family:"Bricolage Grotesque";font-size:clamp(32px,3.6vw,46px);line-height:1;margin-bottom:8px}
+.stat span{font-weight:600;opacity:.95}
+.bg-warm{background:var(--warm)}.bg-cool{background:var(--cool)}.bg-fresh{background:var(--fresh)}
+.bg-sun{background:linear-gradient(135deg,var(--sun),var(--coral))}
+.bg-pink{background:linear-gradient(135deg,var(--violet),var(--pink))}
+
+/* ---------- Cards ---------- */
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;transition:.3s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.card h3{font-size:22px;margin-bottom:10px}
+.card p{color:var(--ink-2)}
+.icon{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-size:26px;margin-bottom:20px;color:#fff}
+.card .more{display:inline-flex;gap:6px;margin-top:18px;font-weight:700;font-size:14.5px}
+.topbar::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--c,var(--rainbow))}
+
+.c-coral{--c:var(--coral);--soft:#fff0ef}.c-sun{--c:var(--sun);--soft:#fff6e6}.c-mint{--c:var(--mint);--soft:#e7faf6}
+.c-sky{--c:var(--sky);--soft:#eaf2ff}.c-violet{--c:var(--violet);--soft:#f1edff}.c-pink{--c:var(--pink);--soft:#ffedf6}
+.c-coral .icon,.c-sun .icon,.c-mint .icon,.c-sky .icon,.c-violet .icon,.c-pink .icon{background:var(--c)}
+.c-coral .more,.c-sun .more,.c-mint .more,.c-sky .more,.c-violet .more,.c-pink .more{color:var(--c)}
+
+/* Chips / tags */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;background:var(--soft,#f5f1fb);color:var(--ink-2)}
+
+/* ---------- Expertise page ---------- */
+.area{display:grid;grid-template-columns:320px 1fr;gap:50px;padding:50px;border-radius:32px;background:#fff;border:1px solid var(--line);margin-bottom:28px;position:relative;overflow:hidden}
+.area::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--c)}
+.area .num{font-family:"Bricolage Grotesque";font-weight:800;font-size:64px;line-height:1;color:var(--c);opacity:.9}
+.area h2{font-size:clamp(28px,3vw,38px);margin:10px 0 12px}
+.area .intro{color:var(--ink-2)}
+.points{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.point{background:var(--soft);border-radius:18px;padding:20px}
+.point h4{font-size:17px;margin-bottom:6px;display:flex;gap:8px;align-items:center}
+.point p{color:var(--ink-2);font-size:14.5px}
+
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:step}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;position:relative}
+.step::before{counter-increment:step;content:"0" counter(step);font-family:"Bricolage Grotesque";font-weight:800;font-size:15px;color:#fff;background:var(--c);width:42px;height:42px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px}
+.step h4{font-size:18px;margin-bottom:6px}.step p{color:var(--ink-2);font-size:14.5px}
+
+/* ---------- Certifications page ---------- */
+.cert-hero{border-radius:32px;padding:40px;color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.cert-hero::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;border:40px solid rgba(255,255,255,.14);right:-70px;bottom:-90px}
+.cert-hero .seal{width:84px;height:84px;border-radius:24px;background:rgba(255,255,255,.22);display:grid;place-items:center;font-family:"Bricolage Grotesque";font-weight:800;font-size:26px;margin-bottom:26px;backdrop-filter:blur(4px)}
+.cert-hero h3{font-size:clamp(24px,2.6vw,32px);margin-bottom:8px}
+.cert-hero .when{font-weight:600;opacity:.92;margin-bottom:18px}
+.cert-hero p{opacity:.95;max-width:460px;margin-bottom:24px}
+.badge-live{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.22);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:700;position:absolute;top:30px;right:30px}
+.badge-live i{width:8px;height:8px;border-radius:50%;background:#b8ffe9}
+.btn-glass{background:#fff;color:var(--ink);padding:12px 20px;font-size:14.5px}
+
+.trophy{text-align:center;padding:36px 28px}
+.trophy .big{font-size:52px;margin-bottom:12px}
+.trophy h3{font-size:22px}
+.trophy .when{color:var(--muted);font-weight:600;font-size:14px;margin-bottom:12px}
+
+.numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+
+/* ---------- Projects page ---------- */
+.project{padding:0;display:flex;flex-direction:column}
+.project .shot{background:#1d1838;padding:26px 26px 22px;font:13px/1.75 ui-monospace,SFMono-Regular,Menlo,monospace;color:#e6e1ff;white-space:pre;overflow:hidden;position:relative}
+.project .shot::before{content:"● ● ●";position:absolute;top:10px;left:26px;font-size:9px;letter-spacing:3px;color:#5c557e}
+.project .shot{padding-top:34px}
+.project .body{padding:30px;flex:1;display:flex;flex-direction:column}
+.project .body p{flex:1}
+.project .label{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin-bottom:8px}
+.k{color:#ff8fc4}.t{color:#7cc4ff}.s{color:#ffd27a}.cm{color:#8b84ad}.f{color:#7ff0d6}
+
+/* ---------- Contact page ---------- */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.contact-card{display:block;text-align:left}
+.contact-card .icon{width:64px;height:64px;border-radius:20px}
+.contact-card svg{width:28px;height:28px;fill:#fff}
+.contact-card .val{font-family:"Bricolage Grotesque";font-weight:700;font-size:19px;word-break:break-word;margin:6px 0 4px}
+.contact-card small{color:var(--muted);font-weight:600}
+.open-to{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px}
+.open-to span{background:#fff;border:1px solid var(--line);padding:10px 18px;border-radius:999px;font-weight:600}
+
+/* ---------- Big CTA band ---------- */
+.band{border-radius:36px;padding:70px 40px;text-align:center;color:#fff;background:var(--rainbow);background-size:200% 200%;animation:shift 12s ease infinite;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.band h2{font-size:clamp(32px,4.6vw,58px);margin-bottom:14px}
+.band p{font-size:18px;opacity:.95;max-width:560px;margin:0 auto 30px}
+.band .btn-white{border:0}
+
+/* ---------- Footer ---------- */
+footer{padding:50px 0 40px;margin-top:40px}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border-top:1px solid var(--line);padding-top:30px;color:var(--muted);font-size:14.5px}
+.foot-links{display:flex;gap:10px}
+.foot-links a{width:42px;height:42px;border-radius:12px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;transition:.2s}
+.foot-links a:hover{background:var(--ink);color:#fff}
+.foot-links svg{width:18px;height:18px;fill:currentColor}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1000px){
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .avatar-card{max-width:420px;margin:30px auto 0}
+  .stats,.g4,.process{grid-template-columns:1fr 1fr}
+  .g3,.contact-grid,.numbers{grid-template-columns:1fr 1fr}
+  .area{grid-template-columns:minmax(0,1fr);gap:26px;padding:36px}
+}
+@media (max-width:760px){
+  .burger{display:block}
+  .menu{display:none;position:absolute;top:76px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--bg);padding:12px 20px 20px;border-bottom:1px solid var(--line);gap:4px}
+  .menu.open{display:flex}
+  .menu a{padding:14px 16px}
+  .menu a.hire{margin:6px 0 0;text-align:center}
+  section{padding:70px 0}
+  .g2,.g3,.contact-grid,.numbers,.points{grid-template-columns:minmax(0,1fr)}
+  .stats,.g4,.process{grid-template-columns:1fr 1fr;gap:12px}
+  .stat{padding:22px 16px}.stat b{font-size:26px}
+  .s2{display:none}.avatar-inner p{font-size:14px}
+  .s1{left:-8px}.s2{right:-8px}
+  .area{padding:28px}
+  .band{padding:50px 24px}
+  .project .shot{font-size:11.5px}
+}
